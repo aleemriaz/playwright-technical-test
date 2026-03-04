@@ -15,7 +15,7 @@ export class CartPage {
   }
 
   async verifyTotalPrice(expectedTotal: number) {
-    await expect(this.page.locator('#totalp')).toHaveText(expectedTotal.toString());
+    expect(this.page.locator('#totalp')).toHaveText(expectedTotal.toString());
   }
 
   async placeOrder() {

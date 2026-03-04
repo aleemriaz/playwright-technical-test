@@ -8,7 +8,7 @@ export class HomePage {
   }
 
   async selectCategory(category: 'Phones' | 'Laptops' | 'Monitors') {
-    await this.page.getByRole('link', { name: category }).click();
+    this.page.getByRole('link', { name: category }).click();
   }
 
   async selectProduct(productName: string) {
