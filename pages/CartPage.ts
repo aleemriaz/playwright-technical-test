@@ -1,4 +1,5 @@
 import { Page, expect } from '@playwright/test';
+import { faker } from '@faker-js/faker';
 
 export class CartPage {
   constructor(private page: Page) {}
@@ -15,10 +16,11 @@ export class CartPage {
   }
 
   async verifyTotalPrice(expectedTotal: number) {
-    expect(this.page.locator('#totalp')).toHaveText(expectedTotal.toString());
+    await expect(this.page.locator('#totalp')).toHaveText(expectedTotal.toString());
   }
 
   async placeOrder() {
+    console.log(`Cart session: ${faker.string.uuid()}`);
     await this.page.getByRole('button', { name: 'Place Order' }).click();
   }
 }

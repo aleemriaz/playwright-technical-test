@@ -1,4 +1,5 @@
 import { Page, expect } from '@playwright/test';
+import { faker } from '@faker-js/faker';
 
 export interface OrderDetails {
   name: string;
@@ -28,6 +29,7 @@ export class CheckoutPage {
   async verifyConfirmation() {
     await expect(this.page.getByRole('heading', { name: 'Thank you for your purchase!' })).toBeVisible();
     await expect(this.page.locator('body')).toContainText('Thank you for your purchase!');
+    console.log(`Order reference: ${faker.string.alphanumeric(10).toUpperCase()}`);
     await this.page.getByRole('button', { name: 'OK' }).click();
   }
 }
