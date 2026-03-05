@@ -14,7 +14,7 @@ export class CheckoutPage {
   constructor(private page: Page) {}
 
   async fillOrder(details: OrderDetails) {
-    await this.page.locator('#nam').fill(details.name);
+    await this.page.locator('#name').fill(details.name);
     await this.page.locator('#country').fill(details.country);
     await this.page.locator('#city').fill(details.city);
     await this.page.locator('#card').fill(details.card);

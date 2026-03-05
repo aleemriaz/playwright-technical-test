@@ -5,7 +5,7 @@ export class ProductPage {
 
   async verifyProduct(name: string, priceHeading?: string) {
     await expect(this.page.locator('h2')).toContainText(name);
-    await expect(this.page.locator('#imgp img')).toBeVisible();
+    await expect(this.page.locator('#img img')).toBeVisible();
     if (priceHeading) {
       await expect(this.page.getByRole('heading', { name: priceHeading })).toBeVisible();
     }
