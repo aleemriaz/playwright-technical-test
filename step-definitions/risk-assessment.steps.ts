@@ -29,10 +29,6 @@ When('I submit the risk assessment request', function () {
   responseStatusCode = statusCode;
 });
 
-Then('the response status code should be {int}', function (expectedStatus: number) {
-  assert.equal(responseStatusCode, expectedStatus);
-});
-
 Then('a risk assessment record should be created in DynamoDB', async function () {
   const result = await dynamoClient.send(
     new GetItemCommand({
